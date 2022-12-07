@@ -1,7 +1,8 @@
 const inputs = document.querySelectorAll('.form__input');
 const eyeButtons = document.querySelectorAll('.form__input-eye-icon');
-const changeFormButton = document.querySelector('#change-form-link');
+const registerForm = document.querySelector('#register-form');
 
+console.log(registerForm);
 
 const inputsArray = Array.from(inputs);
 
@@ -48,10 +49,29 @@ function changePasswordVisibility(eyeButton) {
       input.setAttribute('type', 'password');
     }
   });
-  // если функция по поиску инпутов находится здесь, 
+  // если функция по поиску инпутов находится здесь,
   // то при повторном нажатии на кнопку мне возвращается пустой массив - почему?
 }
 
-function register() {
-  
+registerForm.addEventListener('submit', register);
+
+function register(event) {
+  event.preventDefault();
+  const userData = {
+    name: `${event.target.querySelector('#first-name').value}`,
+    lastName: `${event.target.querySelector('#last-name').value}`,
+    email: `${event.target.querySelector('#email').value}`,
+    // password: `${event.target.querySelector('#password').value}`,
+  };
+  // console.log(data);
+  return fetch(' http://localhost:3000/users', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(userData),
+  })
+    .then(response => console.log(response))
+    .catch(error => console.log(error));
 }
