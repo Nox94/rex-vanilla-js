@@ -1,0 +1,14 @@
+.page__header {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 120%;
+  color: #202225;
+  margin: 0;
+  /* outline: 1px solid red; */
+}
+
+@media screen and (min-width: 740px) {
+  .page__header {
+    font-size: 24px;
+  }
+}

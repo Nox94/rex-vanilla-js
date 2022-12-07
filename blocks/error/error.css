@@ -1,0 +1,24 @@
+.error {
+  font-size: 13px;
+  line-height: 120%;
+  color: #F6657F;
+  /* display: block; */
+  margin: 16px 0 0;
+  box-sizing: border-box;
+  display: none;
+  /* outline: 1px solid green; */
+}
+
+@media screen and (min-width: 740px) {
+.error {
+  margin: 8px 0 0;
+}
+}
+
+/* .error:first-of-type {
+  margin: 5px 0 13px 0;
+}
+
+.error:last-of-type {
+  margin: 5px 0 25px 0;
+} */

@@ -1,0 +1,18 @@
+.form__input-eye-icon {
+  width: 20px;
+  height: 20px;
+  background-image: url('../../../images/input_eye_icon.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 25%;
+  right: 8px;
+  /* outline: 1px solid red; */
+}
+
+@media screen and (min-width: 740px) {
+  .form__input-eye-icon {
+    top: 35%;
+    right: 18px;
+  }
+}

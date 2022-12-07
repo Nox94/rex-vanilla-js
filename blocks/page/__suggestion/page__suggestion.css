@@ -1,0 +1,12 @@
+.page__suggestion {
+  font-size: 15px;
+  line-height: 140%;
+  color: #A1ABC9;
+  margin: 72px 0 0;
+}
+
+@media screen and (min-width: 740px) {
+  .page__suggestion {
+    margin: 0 12px 0 0;
+  }
+}

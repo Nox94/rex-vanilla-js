@@ -1,0 +1,9 @@
+.page__return-arrow {
+  width: 8px;
+  height: 14px;
+  background-image: url('../../../images/page_return-arrow_icon.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: block;
+  margin: 0 25px 0 0;
+}

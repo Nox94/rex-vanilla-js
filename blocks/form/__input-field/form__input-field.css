@@ -1,0 +1,16 @@
+.form__input-field {
+  position: relative;
+  width: 100%;
+  margin: 24px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 740px) {
+  .form__input-field {
+    margin: 40px 0 0;
+  }
+}

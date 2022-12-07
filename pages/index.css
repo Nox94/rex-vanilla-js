@@ -1,0 +1,30 @@
+@import url(../vendor/normalize.css);
+
+@import url(../vendor/fonts/poppins/poppins.css);
+
+@import url(../blocks/page/page.css);
+
+@import url(../blocks/page/__items-container/page__items-container.css);
+@import url(../blocks/page/__header/page__header.css);
+@import url(../blocks/page/__suggestion/page__suggestion.css);
+@import url(../blocks/page/__link/page__link.css);
+@import url(../blocks/page/__link/_thin/page__link_thin.css);
+@import url(../blocks/page/__text/page__text.css);
+@import url(../blocks/page/__return-arrow/page__return-arrow.css);
+@import url(../blocks/page/__suggestion-container/page__suggestion-container.css);
+
+@import url(../blocks/button/button.css);
+@import url(../blocks/button/_arrow/button__arrow.css);
+
+@import url(../blocks/form/form.css);
+@import url(../blocks/form/__input-field/form__input-field.css);
+@import url(../blocks/form/__label/form__label.css);
+@import url(../blocks/form/__label/_sr-only/form__label_sr-only.css);
+@import url(../blocks/form/__input/form__input.css);
+@import url(../blocks/form/__input/_error/form__input_error.css);
+@import url(../blocks/form/__input-eye-icon/form__input-eye-icon.css);
+@import url(../blocks/form/__input-eye-icon/_opened/form__input-eye-icon_opened.css);
+@import url(../blocks/form/__button/form__button.css);
+
+@import url(../blocks/error/error.css);
+@import url(../blocks/invisible/invisible.css);

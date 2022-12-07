@@ -1,0 +1,13 @@
+.page__suggestion-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 740px) {
+  .page__suggestion-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 120px 0 0;
+  }
+}
