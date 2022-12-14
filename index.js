@@ -1,8 +1,7 @@
 const inputs = document.querySelectorAll('.form__input');
 const eyeButtons = document.querySelectorAll('.form__input-eye-icon');
 const registerForm = document.querySelector('#register-form');
-
-console.log(registerForm);
+const authForm = document.querySelector('#authorize-form');
 
 const inputsArray = Array.from(inputs);
 
@@ -54,6 +53,7 @@ function changePasswordVisibility(eyeButton) {
 }
 
 registerForm.addEventListener('submit', register);
+authForm.addEventListener('submit', authorize);
 
 function register(event) {
   event.preventDefault();
@@ -61,9 +61,8 @@ function register(event) {
     name: `${event.target.querySelector('#first-name').value}`,
     lastName: `${event.target.querySelector('#last-name').value}`,
     email: `${event.target.querySelector('#email').value}`,
-    // password: `${event.target.querySelector('#password').value}`,
+    password: `${event.target.querySelector('#password').value}`,
   };
-  // console.log(data);
   return fetch(' http://localhost:3000/users', {
     method: 'POST',
     headers: {
@@ -74,4 +73,24 @@ function register(event) {
   })
     .then(response => console.log(response))
     .catch(error => console.log(error));
+}
+
+function authorize(event) {
+  event.preventDefault();
+  const userData = {
+    email: `${event.target.querySelector('#auth-email').value}`,
+    password: `${event.target.querySelector('#auth-password').value}`,
+  };
+  return fetch('http://localhost:3000/login', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(userData),
+  })
+    .then(res => res.json())
+    .then(res => {
+      console.log(res); // приходит токен
+    }).catch((error) => console.log(error))
 }

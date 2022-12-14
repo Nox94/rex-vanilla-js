@@ -1,9 +1,10 @@
 {
   "users": [
     {
+      "email": "shkarina0704@gmail.com",
+      "password": "$2a$10$6BeFnxeXpDt8eedVaVoGx.QkH./c7K/uk9111zfFMjanihfF0.lnC",
       "name": "1",
       "lastName": "1",
-      "email": "shkarina0704@gmail.com",
       "id": 1
     }
   ]

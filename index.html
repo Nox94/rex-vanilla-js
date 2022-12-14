@@ -1,116 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="./pages/index.css"/>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./pages/index.css" />
     <title>rex</title>
-</head>
-<body>
-<div class="page">
-    <!--страница регистрации/входа-->
-    <div class="page__items-container" id="form-container">
+  </head>
+  <body>
+    <div class="page">
+      <!--страница регистрации-->
+      <div class="page__items-container" id="form-container">
         <h1 class="page__header" id="page-form-header">Sign Up</h1>
 
         <form class="form" id="register-form">
-            <div class="form__input-field">
-                <label class="form__label_sr-only" for="first-name">First Name</label>
-                <input
-                        class="form__input"
-                        name="first-name"
-                        type="text"
-                        id="first-name"
-                        placeholder="First Name"
-                        autocomplete="username"
-                        required
-                />
-                <span id="first-name-input-error-message" class="error">retgertert</span>
-            </div>
+          <div class="form__input-field">
+            <label class="form__label_sr-only" for="first-name">First Name</label>
+            <input
+              class="form__input"
+              name="first-name"
+              type="text"
+              id="first-name"
+              placeholder="First Name"
+              autocomplete="username"
+              required
+            />
+            <span id="first-name-input-error-message" class="error">retgertert</span>
+          </div>
 
-            <div class="form__input-field">
-                <label class="form__label_sr-only" for="last-name">Last Name</label>
-                <input
-                        class="form__input"
-                        name="last-name"
-                        type="text"
-                        id="last-name"
-                        placeholder="Last Name"
-                        required
-                />
-                <span id="last-name-input-error-message" class="error"></span>
-            </div>
+          <div class="form__input-field">
+            <label class="form__label_sr-only" for="last-name">Last Name</label>
+            <input
+              class="form__input"
+              name="last-name"
+              type="text"
+              id="last-name"
+              placeholder="Last Name"
+              required
+            />
+            <span id="last-name-input-error-message" class="error"></span>
+          </div>
 
-            <div class="form__input-field">
+          <div class="form__input-field">
+            <label class="form__label_sr-only" for="email">Email</label>
+            <input
+              class="form__input"
+              type="email"
+              id="email"
+              placeholder="Email"
+              autocomplete="username"
+              required
+            />
+            <span id="email-input-error-message" class="error"></span>
+          </div>
+
+          <div class="form__input-field">
+            <label class="form__label_sr-only" for="password">Password</label>
+            <input
+              class="form__input"
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+              autocomplete="new-password"
+              required
+            />
+            <a href="#" class="form__input-eye-icon"></a>
+            <span id="password-input-error-message" class="error"></span>
+          </div>
+
+          <div class="form__input-field">
+            <label class="form__label_sr-only" for="confirm-password">Confirm Password</label>
+            <input
+              class="form__input"
+              type="password"
+              name="confirm-password"
+              id="confirm-password"
+              placeholder="Confirm Password"
+              autocomplete="new-password"
+              required
+            />
+            <a href="#" class="form__input-eye-icon"></a>
+            <span id="confirm-password-input-error-message" class="error"></span>
+          </div>
+
+          <button class="button form__button" type="submit">
+            Sign up<img src="../images/button_arrow.png" class="button__arrow" alt="arrow" />
+          </button>
+        </form>
+        <div class="page__suggestion-container">
+          <p class="page__suggestion" id="suggestion">Already have an account?</p>
+          <a class="page__link" href="#" id="change-form-link">Sign in</a>
+        </div>
+      </div>
+
+        <!--страница входа-->
+        <div class="page__items-container invisible" id="auth-form-container">
+            <h1 class="page__header" id="page-form-header">Sign In</h1>
+            <form class="form" id="authorize-form">
+              <div class="form__input-field">
                 <label class="form__label_sr-only" for="email">Email</label>
-                <input class="form__input" type="email" id="email" placeholder="Email" autocomplete="username"
-                       required/>
+                <input
+                  class="form__input"
+                  type="email"
+                  id="auth-email"
+                  placeholder="Email"
+                  autocomplete="username"
+                  required
+                />
                 <span id="email-input-error-message" class="error"></span>
-            </div>
-
-            <div class="form__input-field">
+              </div>
+    
+              <div class="form__input-field">
                 <label class="form__label_sr-only" for="password">Password</label>
                 <input
-                        class="form__input"
-                        type="password"
-                        name="password"
-                        id="password"
-                        placeholder="Password"
-                        autocomplete="new-password"
-                        required
+                  class="form__input"
+                  type="password"
+                  name="password"
+                  id="auth-password"
+                  placeholder="Password"
+                  autocomplete="new-password"
+                  required
                 />
                 <a href="#" class="form__input-eye-icon"></a>
                 <span id="password-input-error-message" class="error"></span>
+              </div>
+    
+              <button class="button form__button" type="submit">
+                Sign in<img src="../images/button_arrow.png" class="button__arrow" alt="arrow" />
+              </button>
+            </form>
+            <a class="page__link page__link_thin" href="#">Forgot Password?</a>
+            <div class="page__suggestion-container">
+              <p class="page__suggestion" id="suggestion">Don't have an account?</p>
+              <a class="page__link" href="#" id="change-form-link">Sign up</a>
             </div>
+          </div>
 
-            <div class="form__input-field">
-                <label class="form__label_sr-only" for="confirm-password">Confirm Password</label>
-                <input
-                        class="form__input"
-                        type="password"
-                        name="confirm-password"
-                        id="confirm-password"
-                        placeholder="Confirm Password"
-                        autocomplete="new-password"
-                        required
-                />
-                <a href="#" class="form__input-eye-icon"></a>
-                <span id="confirm-password-input-error-message" class="error"></span>
-            </div>
-
-            <button class="button form__button" type='submit'>
-                Sign up<img src="../images/button_arrow.png" class="button__arrow" alt="return arrow"/>
-            </button>
-        </form>
-        <a class="page__link page__link_thin invisible" href="#">Forgot Password?</a>
-        <div class="page__suggestion-container">
-            <p class="page__suggestion" id="suggestion">Already have an account?</p>
-            <a class="page__link" href="#" id="change-form-link">Sign in</a>
-        </div>
-    </div>
-
-    <!-- страница восстановления пароля -->
-    <div class="page__items-container invisible" id="restore-page-container">
+      <!-- страница восстановления пароля -->
+      <div class="page__items-container invisible" id="restore-page-container">
         <div style="display: flex; align-items: center;">
-            <a href="#" class="page__return-arrow"></a>
-            <h1 class="page__header">Restore password</h1>
+          <a href="#" class="page__return-arrow"></a>
+          <h1 class="page__header">Restore password</h1>
         </div>
         <p class="page__text">
-            Please use your email address, and we&#8217;ll send you the link to reset your password
+          Please use your email address, and we&#8217;ll send you the link to reset your password
         </p>
         <span class="page__text" id="restore-message"></span>
         <form class="form">
-            <div class="form__input-field">
-                <label class="form__label form__label_sr-only" for="restore-email-input">Email</label>
-                <input class="form__input" type="email" id="restore-email-input" name="restore-email-input"
-                       placeholder="Email"/>
-            </div>
-            <button class="button form__button" type='submit'>
-                Send Reset Link <img class="button__arrow" src="../images/button_arrow.png" alt="return arrow"/>
-            </button>
+          <div class="form__input-field">
+            <label class="form__label form__label_sr-only" for="restore-email-input">Email</label>
+            <input
+              class="form__input"
+              type="email"
+              id="restore-email-input"
+              name="restore-email-input"
+              placeholder="Email"
+            />
+          </div>
+          <button class="button form__button" type="submit">
+            Send Reset Link
+            <img class="button__arrow" src="../images/button_arrow.png" alt="return arrow" />
+          </button>
         </form>
+      </div>
     </div>
-</div>
-<script src='./index.js'></script>
-</body>
+    <script src="./index.js"></script>
+  </body>
 </html>

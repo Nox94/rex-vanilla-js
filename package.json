@@ -1,12 +1,13 @@
 {
   "scripts": {
-    "server": "json-server --watch server/dataBase.json"
+    "server": "json-server-auth -w db.json"
   },
   "devDependencies": {
     "prettier": "^1.19.1",
     "prettier-airbnb-config": "^1.0.0"
   },
   "dependencies": {
-    "json-server": "^0.17.1"
+    "json-server": "^0.17.1",
+    "json-server-auth": "^2.1.0"
   }
 }
