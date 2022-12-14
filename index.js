@@ -11,16 +11,33 @@ const passwordInputs = inputsArray.filter(input => {
 });
 
 // меняет иконки в зависимости от типа инпута
+// inputsArray.forEach(input => {
+//   let type = input.getAttribute('type');
+//   if (type === 'text') {
+//     input.style.backgroundImage = `url('../../../images/input_user_icon.png')`;
+//   } else if (type === 'email') {
+//     input.style.backgroundImage = `url('../../../images/input_email_icon.png')`;
+//   } else if (type === 'password') {
+//     input.style.backgroundImage = `url('../../../images/input_lock_icon.png')`;
+//   } else {
+//     console.log('nya');
+//   }
+// });
+
 inputsArray.forEach(input => {
   let type = input.getAttribute('type');
-  if (type === 'text') {
-    input.style.backgroundImage = `url('../../../images/input_user_icon.png')`;
-  } else if (type === 'email') {
-    input.style.backgroundImage = `url('../../../images/input_email_icon.png')`;
-  } else if (type === 'password') {
-    input.style.backgroundImage = `url('../../../images/input_lock_icon.png')`;
-  } else {
-    console.log('nya');
+  switch (type) {
+    case 'text':
+      input.style.backgroundImage = `url('../../../images/input_user_icon.png')`;
+      break;
+    case 'email':
+      input.style.backgroundImage = `url('../../../images/input_email_icon.png')`;
+      break;
+    case 'password':
+      input.style.backgroundImage = `url('../../../images/input_lock_icon.png')`;
+      break;
+    default:
+      break;
   }
 });
 
@@ -92,5 +109,6 @@ function authorize(event) {
     .then(res => res.json())
     .then(res => {
       console.log(res); // приходит токен
-    }).catch((error) => console.log(error))
+    })
+    .catch(error => console.log(error));
 }
