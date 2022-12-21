@@ -94,48 +94,48 @@
         </div>
       </div>
 
-        <!--страница входа-->
-        <div class="page__items-container invisible" id="auth-form-container">
-            <h1 class="page__header" id="page-form-header">Sign In</h1>
-            <form class="form" id="authorize-form">
-              <div class="form__input-field">
-                <label class="form__label_sr-only" for="email">Email</label>
-                <input
-                  class="form__input"
-                  type="email"
-                  id="auth-email"
-                  placeholder="Email"
-                  autocomplete="username"
-                  required
-                />
-                <span id="email-input-error-message" class="error"></span>
-              </div>
-    
-              <div class="form__input-field">
-                <label class="form__label_sr-only" for="password">Password</label>
-                <input
-                  class="form__input"
-                  type="password"
-                  name="password"
-                  id="auth-password"
-                  placeholder="Password"
-                  autocomplete="new-password"
-                  required
-                />
-                <a href="#" class="form__input-eye-icon"></a>
-                <span id="password-input-error-message" class="error"></span>
-              </div>
-    
-              <button class="button form__button" type="submit">
-                Sign in<img src="../images/button_arrow.png" class="button__arrow" alt="arrow" />
-              </button>
-            </form>
-            <a class="page__link page__link_thin" href="#">Forgot Password?</a>
-            <div class="page__suggestion-container">
-              <p class="page__suggestion" id="suggestion">Don't have an account?</p>
-              <a class="page__link" href="#" id="change-form-link">Sign up</a>
-            </div>
+      <!--страница входа-->
+      <div class="page__items-container invisible" id="auth-form-container">
+        <h1 class="page__header" id="page-form-header">Sign In</h1>
+        <form class="form" id="authorize-form">
+          <div class="form__input-field">
+            <label class="form__label_sr-only" for="email">Email</label>
+            <input
+              class="form__input"
+              type="email"
+              id="auth-email"
+              placeholder="Email"
+              autocomplete="username"
+              required
+            />
+            <span id="email-input-error-message" class="error"></span>
           </div>
+
+          <div class="form__input-field">
+            <label class="form__label_sr-only" for="password">Password</label>
+            <input
+              class="form__input"
+              type="password"
+              name="password"
+              id="auth-password"
+              placeholder="Password"
+              autocomplete="new-password"
+              required
+            />
+            <a href="#" class="form__input-eye-icon"></a>
+            <span id="password-input-error-message" class="error"></span>
+          </div>
+
+          <button class="button form__button" type="submit">
+            Sign in<img src="../images/button_arrow.png" class="button__arrow" alt="arrow" />
+          </button>
+        </form>
+        <a class="page__link page__link_thin" href="#">Forgot Password?</a>
+        <div class="page__suggestion-container">
+          <p class="page__suggestion" id="suggestion">Don't have an account?</p>
+          <a class="page__link" href="#" id="change-form-link">Sign up</a>
+        </div>
+      </div>
 
       <!-- страница восстановления пароля -->
       <div class="page__items-container invisible" id="restore-page-container">
@@ -165,7 +165,9 @@
         </form>
       </div>
     </div>
-    <script src="./scripts/creation.js" type='module'></script>
-    <script src='./scripts/routing.js' type='module'></script>
+    <script src="./scripts/creation.js" type="module"></script>
+    <script src="./scripts/render.js" type="module"></script>
+    <script src="./scripts/authorize.js" type="module"></script>
+    <script src="./scripts/routing.js" type="module"></script>
   </body>
 </html>
