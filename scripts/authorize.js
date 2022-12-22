@@ -1,4 +1,4 @@
-export function register(event) {
+function register(event) {
   const userData = {
     name: `${event.target.querySelector('#first-name').value}`,
     lastName: `${event.target.querySelector('#last-name').value}`,
@@ -18,7 +18,7 @@ export function register(event) {
     .catch(error => console.log(error));
 }
 
-export function authorize(event) {
+function authorize(event) {
   event.preventDefault();
   const userData = {
     email: `${event.target.querySelector('#auth-email').value}`,

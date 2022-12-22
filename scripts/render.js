@@ -1,21 +1,3 @@
-import {onNavigate} from './routing';
-import {
-  form,
-  header,
-  submitButton,
-  inputField,
-  passwordInputLabel,
-  confirmPasswordInputLabel,
-  firstNameInputLabel,
-  lastNameInputLabel,
-  emailInputLabel,
-  firstNameInput,
-  lastNameInput,
-  confirmPasswordInput,
-  emailInput,
-  passwordInput,
-} from './creation';
-
 const inputsArray = Array.of(
   firstNameInput,
   lastNameInput,
@@ -43,16 +25,53 @@ function setInputPic() {
   });
 }
 
-export function renderSignUpPage(params) {
+function clearThePage() {
+  console.log('cleaned');
+  document.querySelector('.page').removeChild(pageContainer);
+}
+
+function renderSignUpPage() {
+  document.querySelector('.page').append(pageContainer);
+  pageContainer.append(header, form, pageSuggestionContainer);
+  form.append(
+    firstNameInputField,
+    lastNameInputField,
+    emailInputField,
+    passwordInputField,
+    confirmInputField,
+    submitButton,
+    pageSuggestionContainer
+  );
+  firstNameInputField.append(firstNameInputLabel, firstNameInput, errorSpan);
+  lastNameInputField.append(lastNameInputLabel, lastNameInput, errorSpan);
+  emailInputField.append(emailInputLabel, emailInput, errorSpan);
+  passwordInputField.append(passwordInputLabel, passwordInput, passwordEyeIcon, errorSpan);
+  confirmInputField.append(
+    confirmPasswordInputLabel,
+    confirmPasswordInput,
+    confirmEyeIcon,
+    errorSpan
+  );
+  submitButton.classList.add('form__button');
+  submitButton.append(buttonArrowImg);
+  pageSuggestionContainer.append(pageSuggestion, moveToAuthPageLink);
+
   form.addEventListener('submit', event => {
     event.preventDefault();
     register(event);
+    onNavigate('/signin');
+  });
+
+  moveToAuthPageLink.addEventListener('click', () => {
+    onNavigate('/signin');
   });
 }
 
-export function renderSignInPage(params) {
+function renderSignInPage() {
+  clearThePage();
+  console.log('rendered auth page');
   form.addEventListener('submit', event => {
     event.preventDefault();
-    register(event);
+    authorize(event);
   });
 }

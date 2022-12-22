@@ -1,3 +1,4 @@
+
 function initialize() {
   window.addEventListener('load', event => {
     console.log('loading -->');
@@ -6,6 +7,7 @@ function initialize() {
   });
   // Чтобы узнать, когда переход был завершён необходимо подписаться на событие popstate окна
   window.addEventListener('popstate', event => {
+    console.log(event);
     // если событие popstate содержит
     if (event.state && event.state.pathname) {
       console.log('going to --> ', event.state.pathname);
@@ -14,16 +16,19 @@ function initialize() {
       router(event.state.pathname);
     }
   });
-  window.addEventListener('popstate', event => {
-    console.log(`Данные навигации: ${JSON.stringify(event.state)}`);
+
+  window.addEventListener('popstate', (event) => {
+    console.log(`Данные навигации: ${JSON.stringify(event.state)}`)
   });
 }
 
 initialize();
 
-export function onNavigate(pathname) {
+function onNavigate(pathname) {
   // добавляет запись с текущим урл в историю браузера
-  window.history.pushState({pathname}, '', window.location.origin + pathname);
+  console.log(window.history.length);
+  console.log(history.state);
+  window.history.pushState({pathname}, null, pathname);
   // вызывает функцию-роутер
   // сообщает роутеру текущий урл, когда он добавляется в историю браузера
   router(pathname);
@@ -33,15 +38,15 @@ function router(route) {
   console.log('current route --> ', route);
   switch (route) {
     case '/':
-      return console.log('signup');
+      renderSignUpPage();
     case '/signup':
-      return console.log('signup');
+      renderSignUpPage();
     case '/signin':
-      return console.log('signin');
-    case '/restore-password':
-      return console.log('restore');
-    case '/restore-password-message':
-      return console.log('restore message');
+      renderSignInPage();
+    // case '/restore-password':
+    //   return console.log('restore');
+    // case '/restore-password-message':
+    //   return console.log('restore message');
     // case '/clinic':
     //   return this.view.renderClinic()
     default:
