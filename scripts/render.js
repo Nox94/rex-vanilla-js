@@ -27,10 +27,11 @@ function setInputPic() {
 
 function clearThePage() {
   console.log('cleaned');
-  document.querySelector('.page').removeChild(pageContainer);
+  pageContainer.remove();
 }
 
 function renderSignUpPage() {
+  clearThePage();
   document.querySelector('.page').append(pageContainer);
   pageContainer.append(header, form, pageSuggestionContainer);
   form.append(
@@ -62,7 +63,8 @@ function renderSignUpPage() {
     onNavigate('/signin');
   });
 
-  moveToAuthPageLink.addEventListener('click', () => {
+  moveToAuthPageLink.addEventListener('click', event => {
+    event.preventDefault();
     onNavigate('/signin');
   });
 }
@@ -70,8 +72,29 @@ function renderSignUpPage() {
 function renderSignInPage() {
   clearThePage();
   console.log('rendered auth page');
+
+  document.querySelector('.page').append(pageContainer);
+  pageContainer.append(header, form, pageSuggestionContainer, moveToRestorePageLink);
+  form.append(emailInputField, passwordInputField, submitButton);
+  emailInputField.append(emailInputLabel, emailInput, errorSpan);
+  passwordInputField.append(passwordInputLabel, passwordInput, passwordEyeIcon, errorSpan);
+  submitButton.append(buttonArrowImg);
+  moveToRestorePageLink.classList.add('page__link_thin');
+  pageSuggestionContainer.append(pageSuggestion, moveToSignUpPageLink);
+
   form.addEventListener('submit', event => {
     event.preventDefault();
     authorize(event);
+    // onNavigate('/signup');
   });
+
+  moveToSignUpPageLink.addEventListener('click', event => {
+    event.preventDefault();
+    onNavigate('/signup');
+  });
+
+  moveToRestorePageLink.addEventListener('click', (event) => {
+    event.preventDefault();
+    onNavigate('/restore-password');
+  })
 }

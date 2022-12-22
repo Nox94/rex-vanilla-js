@@ -1,24 +1,43 @@
 const form = createElement('form', 'form');
 const errorSpan = createElement('span', 'error');
 const header = createElement('h1', 'page__header', 'Sign Up');
-const firstNameInputField = createElement('div', 'form__input-field', '', {id: 'first-name-input-field'});
-const lastNameInputField = createElement('div', 'form__input-field', '', {id: 'last-name-input-field'});
-const passwordInputField = createElement('div', 'form__input-field', '', {id: 'password-input-field'});
-const confirmInputField = createElement('div', 'form__input-field', '', {id: 'confirm-input-field'});
+const moveToRestorePageLink = createElement('a', 'page__link', '', {href: '#'});
+const firstNameInputField = createElement('div', 'form__input-field', '', {
+  id: 'first-name-input-field',
+});
+const lastNameInputField = createElement('div', 'form__input-field', '', {
+  id: 'last-name-input-field',
+});
+const passwordInputField = createElement('div', 'form__input-field', '', {
+  id: 'password-input-field',
+});
+const confirmInputField = createElement('div', 'form__input-field', '', {
+  id: 'confirm-input-field',
+});
 const emailInputField = createElement('div', 'form__input-field', '', {id: 'email-input-field'});
-const restoreInputField = createElement('div', 'form__input-field', '', {id: 'restore-input-field'});
+const restoreInputField = createElement('div', 'form__input-field', '', {
+  id: 'restore-input-field',
+});
 const pageContainer = createElement('div', 'page__items-container');
-const passwordEyeIcon = createElement('a', 'form__input-eye-icon', '', {href: '#', id: 'password-eye-icon'});
-const confirmEyeIcon = createElement('a', 'form__input-eye-icon', '', {href: '#', id: 'confirm-eye-icon'});
+const passwordEyeIcon = createElement('a', 'form__input-eye-icon', '', {
+  href: '#',
+  id: 'password-eye-icon',
+});
+const confirmEyeIcon = createElement('a', 'form__input-eye-icon', '', {
+  href: '#',
+  id: 'confirm-eye-icon',
+});
 const pageSuggestionContainer = createElement('div', 'page__suggestion-container');
 const pageSuggestion = createElement('p', 'page__suggestion', 'Already have an account?');
 const moveToAuthPageLink = createElement('a', 'page__link', 'Sign in', {href: '#'});
+const moveToSignUpPageLink = createElement('a', 'page__link', 'Sign up', {href: '#'});
 const passwordInputLabel = createElement('label', 'form__label_sr-only', 'Password', {
   for: 'password',
 });
 const confirmPasswordInputLabel = createElement('label', 'form__label_sr-only', 'Password', {
   for: 'confirm-password',
-}); const firstNameInputLabel = createElement('label', 'form__label_sr-only', 'Password', {
+});
+const firstNameInputLabel = createElement('label', 'form__label_sr-only', 'Password', {
   for: 'first-name',
 });
 const lastNameInputLabel = createElement('label', 'form__label_sr-only', 'Password', {
@@ -44,7 +63,7 @@ const lastNameInput = createElement('input', 'form__input', '', {
 const passwordInput = createElement('input', 'form__input', '', {
   type: 'password',
   name: 'password',
-  placeholder: 'password',
+  placeholder: 'Password',
   autocomplete: 'new-password',
   required: 'true',
 });
@@ -101,7 +120,6 @@ function getElement(selector) {
 //   let inputType = input.getAttribute('type');
 //   return inputType === 'password' && input;
 // });
-
 
 // eyeButtons.forEach(eyeButton => {
 //   eyeButton.addEventListener('click', toggleEyeClassList);

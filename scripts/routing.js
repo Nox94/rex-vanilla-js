@@ -26,8 +26,8 @@ initialize();
 
 function onNavigate(pathname) {
   // добавляет запись с текущим урл в историю браузера
-  console.log(window.history.length);
-  console.log(history.state);
+  console.log('history length: ', window.history.length);
+  console.log('history state :', history.state);
   window.history.pushState({pathname}, null, pathname);
   // вызывает функцию-роутер
   // сообщает роутеру текущий урл, когда он добавляется в историю браузера
@@ -43,8 +43,8 @@ function router(route) {
       renderSignUpPage();
     case '/signin':
       renderSignInPage();
-    // case '/restore-password':
-    //   return console.log('restore');
+    case '/restore-password':
+      return console.log('restore route activated');
     // case '/restore-password-message':
     //   return console.log('restore message');
     // case '/clinic':
