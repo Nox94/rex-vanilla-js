@@ -1,15 +1,9 @@
-const inputsArray = Array.of(
-  firstNameInput,
-  lastNameInput,
-  passwordInput,
-  confirmPasswordInput,
-  emailInput
-);
-
 const rootElement = document.querySelector('#root');
 
+// задает всем инпутам правильные пикчи
 function setInputPic() {
-  inputsArray.forEach(input => {
+  const inputsNodeList = document.querySelectorAll('.form__input');
+  inputsNodeList.forEach(input => {
     let type = input.getAttribute('type');
     switch (type) {
       case 'text':
@@ -27,38 +21,50 @@ function setInputPic() {
   });
 }
 
+// очищает страницу от предыдущего хлама
 function clearThePage() {
   state = {page: ''};
   rootElement.innerHTML = '';
   console.log('cleaned');
 }
 
+// ну тут понятно, да?
 function renderSignUpPage() {
-  // state.page = 'signup'
-  document.querySelector('.page').prepend(pageContainer);
-  pageContainer.append(header, form, pageSuggestionContainer);
-  form.append(
-    firstNameInputField,
-    lastNameInputField,
-    emailInputField,
-    passwordInputField,
-    confirmInputField,
-    submitButton,
-    pageSuggestionContainer
-  );
-  firstNameInputField.append(firstNameInputLabel, firstNameInput, errorSpan);
-  lastNameInputField.append(lastNameInputLabel, lastNameInput, errorSpan);
-  emailInputField.append(emailInputLabel, emailInput, errorSpan);
-  passwordInputField.append(passwordInputLabel, passwordInput, passwordEyeIcon, errorSpan);
-  confirmInputField.append(
-    confirmPasswordInputLabel,
-    confirmPasswordInput,
-    confirmEyeIcon,
-    errorSpan
-  );
-  submitButton.classList.add('form__button');
-  submitButton.append(buttonArrowImg);
-  pageSuggestionContainer.append(pageSuggestion, moveToAuthPageLink);
+  rootElement.insertAdjacentHTML('afterbegin', signUpPageTemplate);
+  const form = document.querySelector('.form');
+  const moveToAuthPageLink = document.querySelector('#change-form-link');
+  const eyeButtons = document.querySelectorAll('.form__input-eye-icon');
+  const passwordEyeButton = document.querySelector('#password-eye-icon');
+  const confirmPasEyeButton = document.querySelector('#confirm-password-eye-icon');
+  const passwordInput = document.querySelector('#password');
+  const confirmPasInput = document.querySelector('#confirm-password');
+
+  setInputPic();
+
+  eyeButtons.forEach(eyeButton => {
+    eyeButton.addEventListener('click', toggleEyeClassList);
+  });
+
+  // переключает иконку глаза
+  function toggleEyeClassList(event) {
+    const target = event.target;
+    if (event && event.preventDefault) {
+      event.preventDefault();
+    }
+    target.classList.toggle('form__input-eye-icon_opened');
+    changePasswordVisibility();
+  }
+
+  // переключает видимость пароля
+  function changePasswordVisibility() {
+    passwordEyeButton.classList.contains('form__input-eye-icon_opened')
+      ? passwordInput.setAttribute('type', 'text')
+      : passwordInput.setAttribute('type', 'password');
+
+    confirmPasEyeButton.classList.contains('form__input-eye-icon_opened')
+      ? confirmPasInput.setAttribute('type', 'text')
+      : confirmPasInput.setAttribute('type', 'password');
+  }
 
   form.addEventListener('submit', event => {
     event.preventDefault();
@@ -77,26 +83,38 @@ function renderSignUpPage() {
 }
 
 function renderSignInPage() {
-  // console.log('rendered auth page');
-  // document.querySelector('.page').append(pageContainer);
-  // pageContainer.append(header, form, pageSuggestionContainer, moveToRestorePageLink);
-  // form.append(emailInputField, passwordInputField, submitButton);
-  // emailInputField.append(emailInputLabel, emailInput, errorSpan);
-  // passwordInputField.append(passwordInputLabel, passwordInput, passwordEyeIcon, errorSpan);
-  // submitButton.append(buttonArrowImg);
-  // moveToRestorePageLink.classList.add('page__link_thin');
-  // pageSuggestionContainer.append(pageSuggestion, moveToSignUpPageLink);
-
   rootElement.insertAdjacentHTML('afterbegin', authorizePageTemplate);
   const form = document.querySelector('.form');
   const moveToSignUpPageLink = document.querySelector('#change-form-link');
   const moveToRestorePageLink = document.querySelector('#restore-page-link');
+  const passwordInput = document.querySelector('#auth-password');
+  const passwordEyeButton = document.querySelector('#auth-passsword-eye-icon');
+
+  passwordEyeButton.addEventListener('click', toggleEyeClassList);
+
+  // переключает иконку глаза
+  function toggleEyeClassList(event) {
+    const target = event.target;
+    if (event && event.preventDefault) {
+      event.preventDefault();
+    }
+    target.classList.toggle('form__input-eye-icon_opened');
+    changePasswordVisibility();
+  }
+
+  // переключает видимость пароля
+  function changePasswordVisibility() {
+    passwordEyeButton.classList.contains('form__input-eye-icon_opened')
+      ? passwordInput.setAttribute('type', 'text')
+      : passwordInput.setAttribute('type', 'password');
+  }
 
   form.addEventListener('submit', event => {
     event.preventDefault();
     authorize(event);
     clearThePage();
     state.page = 'main';
+    // некуда пока перенаправлять
     // onNavigate('/signup');
   });
 
@@ -127,7 +145,10 @@ function renderRestorePage() {
     restore(event);
     form.remove();
     pageText.remove();
-    restoreMessage.insertAdjacentText('afterbegin', 'An email has been sent to you. Check your inbox, and click the reset link provided.')
+    restoreMessage.insertAdjacentText(
+      'afterbegin',
+      'An email has been sent to you. Check your inbox, and click the reset link provided.'
+    );
   });
 
   returnButton.addEventListener('click', event => {
