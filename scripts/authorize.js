@@ -38,3 +38,8 @@ function authorize(event) {
     })
     .catch(error => console.log(error));
 }
+
+function restore(event) {
+  event.preventDefault();
+  console.log('restore email sent')
+}

@@ -1,7 +1,12 @@
 const form = createElement('form', 'form');
 const errorSpan = createElement('span', 'error');
 const header = createElement('h1', 'page__header', 'Sign Up');
-const moveToRestorePageLink = createElement('a', 'page__link', '', {href: '#'});
+const moveToRestorePageLink = createElement('a', 'page__link', '');
+const pageContainer = createElement('div', 'page__items-container');
+const moveToAuthPageLink = createElement('a', 'page__link', 'Sign in');
+const moveToSignUpPageLink = createElement('a', 'page__link', 'Sign up');
+const pageSuggestionContainer = createElement('div', 'page__suggestion-container');
+const pageSuggestion = createElement('p', 'page__suggestion', 'Already have an account?');
 const firstNameInputField = createElement('div', 'form__input-field', '', {
   id: 'first-name-input-field',
 });
@@ -18,19 +23,13 @@ const emailInputField = createElement('div', 'form__input-field', '', {id: 'emai
 const restoreInputField = createElement('div', 'form__input-field', '', {
   id: 'restore-input-field',
 });
-const pageContainer = createElement('div', 'page__items-container');
 const passwordEyeIcon = createElement('a', 'form__input-eye-icon', '', {
-  href: '#',
   id: 'password-eye-icon',
 });
 const confirmEyeIcon = createElement('a', 'form__input-eye-icon', '', {
-  href: '#',
   id: 'confirm-eye-icon',
 });
-const pageSuggestionContainer = createElement('div', 'page__suggestion-container');
-const pageSuggestion = createElement('p', 'page__suggestion', 'Already have an account?');
-const moveToAuthPageLink = createElement('a', 'page__link', 'Sign in', {href: '#'});
-const moveToSignUpPageLink = createElement('a', 'page__link', 'Sign up', {href: '#'});
+
 const passwordInputLabel = createElement('label', 'form__label_sr-only', 'Password', {
   for: 'password',
 });
@@ -148,3 +147,73 @@ function getElement(selector) {
 //   // если функция по поиску инпутов находится здесь,
 //   // то при повторном нажатии на кнопку мне возвращается пустой массив - почему?
 // }
+
+
+const authorizePageTemplate = `<div class="page__items-container" id="auth-form-container">
+<h1 class="page__header" id="page-form-header">Sign In</h1>
+<form class="form" id="authorize-form">
+  <div class="form__input-field">
+    <label class="form__label_sr-only" for="email">Email</label>
+    <input
+      class="form__input"
+      type="email"
+      id="auth-email"
+      placeholder="Email"
+      autocomplete="username"
+      required
+    />
+    <span id="email-input-error-message" class="error"></span>
+  </div>
+
+  <div class="form__input-field">
+    <label class="form__label_sr-only" for="password">Password</label>
+    <input
+      class="form__input"
+      type="password"
+      name="password"
+      id="auth-password"
+      placeholder="Password"
+      autocomplete="new-password"
+      required
+    />
+    <a class="form__input-eye-icon"></a>
+    <span id="password-input-error-message" class="error"></span>
+  </div>
+
+  <button class="button form__button" type="submit">
+    Sign in<img src="../images/button_arrow.png" class="button__arrow" alt="arrow" />
+  </button>
+</form>
+<a class="page__link page__link_thin" id='restore-page-link'>Forgot Password?</a>
+<div class="page__suggestion-container">
+  <p class="page__suggestion" id="suggestion">Don't have an account?</p>
+  <a class="page__link" id="change-form-link">Sign up</a>
+</div>
+</div>`
+
+const restorePageTemplate = `<div class="page__items-container" id="restore-page-container">
+<div style="display: flex; align-items: center;">
+  <a class="page__return-arrow"></a>
+  <h1 class="page__header">Restore password</h1>
+</div>
+<p class="page__text">
+  Please use your email address, and we&#8217;ll send you the link to reset your password
+</p>
+<span class="page__text" id="restore-message"></span>
+<form class="form">
+  <div class="form__input-field">
+    <label class="form__label form__label_sr-only" for="restore-email-input">Email</label>
+    <input
+      class="form__input"
+      type="email"
+      id="restore-email-input"
+      name="restore-email-input"
+      placeholder="Email"
+    />
+  </div>
+  <button class="button form__button" type="submit">
+    Send Reset Link
+    <img class="button__arrow" src="../images/button_arrow.png" alt="return arrow" />
+  </button>
+</form>
+</div>`
