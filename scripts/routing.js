@@ -64,10 +64,7 @@ function router(route) {
       }
       return console.log('restore route activated');
       break;
-    // case '/restore-password-message':
-    //   return console.log('restore message');
-    // case '/clinic':
-    //   return this.view.renderClinic()
+    // case '/main':
     default:
       break;
   }
