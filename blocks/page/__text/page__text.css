@@ -5,6 +5,11 @@
   margin: 24px 0 0;
 }
 
+.page__text#restore-message {
+  margin: 32px 0 0;
+  display: block;
+}
+
 @media screen and (min-width: 740px) {
   .page__text {
     margin: 32px 0 0;
